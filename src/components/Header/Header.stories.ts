@@ -1,32 +1,32 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-
-import { fn } from 'storybook/test';
-
-import  Header  from './index';
+import Header from './index';
 
 const meta = {
-  title: 'Example/Header',
+  title: 'Components/Header',
   component: Header,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
   args: {
-    onLogin: fn(),
-    onLogout: fn(),
-    onCreateAccount: fn(),
+    name: 'Entrar',
   },
 } satisfies Meta<typeof Header>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-export const LoggedIn: Story = {
+export const Default: Story = {};
+
+export const LoggedUser: Story = {
   args: {
-    user: {
-      name: 'Jane Doe',
-    },
+    name: 'Minha Conta',
   },
 };
 
-export const LoggedOut: Story = {};
+export const CallToAction: Story = {
+  args: {
+    name: 'Começar Agora',
+  },
+};
